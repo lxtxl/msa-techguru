@@ -83,5 +83,22 @@ sh 02_install.sh jenkins
 - application 코드 받기 ( https://github.com/sharplee7/amazon-msk-spring-boot-eda-exmple.git )
 - 빌드하기
 ```
-./gradlew
+cd order-service/
+
+# 빌드
+./gradlew build
+
+# docker container build
+sh 02_docker_build.sh
+
+# docker image 확인
+docker images
+
+# docker image push
+sh 01_docker_push.sh
+```
+- 배포하기
+```
+sh 00_ecr_login.sh
+helm install order-service ./helm_chart/
 ```
