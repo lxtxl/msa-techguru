@@ -1,0 +1,5 @@
+**/.terraform
+**/terraform.tfstate
+script/kubectl
+script/*.tar.gz
+script/*.html
