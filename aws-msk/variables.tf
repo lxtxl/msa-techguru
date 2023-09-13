@@ -10,13 +10,23 @@ variable "environment_name" {
   default     = "blueprint-msk"
 }
 
-variable "sg_name" {
-  description = "Security Group Name"
-  type        = string
-}
-
 variable "subnets" {
   description = "Security Group Name"
   type        = list(string)
+}
+
+variable "kafka_version" {
+  description = "Kafka Version"
+  type        = string
+}
+
+variable "broker_type" {
+  description = "Kafka broker type"
+  type        = string
+}
+
+variable "vpc_id" {
+  description = "vpc id"
+  type        = string
 }
 
