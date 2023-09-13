@@ -2,12 +2,12 @@ provider "aws" {
   region = var.aws_region
 }
 
-resource "aws_codecommit_repository" "order-service" {
-  repository_name = "test-order-service"
+resource "aws_codecommit_repository" "order-example" {
+  repository_name = "order-example"
   description     = "order service codecommit"
 }
 
-resource "aws_codecommit_repository" "customer-service" {
-  repository_name = "test-customer-service"
+resource "aws_codecommit_repository" "customer-example" {
+  repository_name = "customer-example"
   description     = "customer service codecommit"
 }
