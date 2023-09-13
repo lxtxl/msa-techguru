@@ -62,7 +62,11 @@ module "msk-kafka-cluster" {
     "delete.topic.enable"       = true
   }
   client_authentication = {
-
+    sasl = {
+      iam = "true"
+      scram = "false"
+    }
+    unauthenticated = "true"
   }
   tags = {
     Terraform   = "true"
