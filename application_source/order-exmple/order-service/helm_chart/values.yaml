@@ -6,10 +6,10 @@ replicaCount: 1
 
 image:
   # repository: harbor.yulisys.com/kb-sbx/spring-boot
-  repository: 359192146206.dkr.ecr.ap-northeast-2.amazonaws.com/order-service
+  repository: 493471005329.dkr.ecr.ap-northeast-2.amazonaws.com/order_service
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 1.0.0
+  tag: latest
 
 nameOverride: ""
 fullnameOverride: ""
