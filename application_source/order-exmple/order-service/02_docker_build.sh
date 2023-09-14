@@ -1,5 +1,5 @@
 #!/bin/bash
 
 PROJECT_NAME=order-service
-TAG_NAME=1.0.0
+TAG_NAME=latest
 docker build -t ${PROJECT_NAME}:${TAG_NAME} .

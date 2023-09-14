@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t customer-service:1.0.0 .
+docker build -t customer-service:latest .
