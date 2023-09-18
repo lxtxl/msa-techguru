@@ -3,7 +3,7 @@
 source ../env.sh
 
 # AWS 로드 밸런서 컨트롤러의 IAM 정책 생성 ( 1.27 )
-curl -o load-balancer-role-trust-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.4.1/docs/install/iam_policy.json
+curl -o load-balancer-role-trust-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json
 
 POLICYARN_EXIST=$(aws iam list-policies --query 'Policies[?PolicyName==`AWSLoadBalancerControllerIAMPolicy`].{ARN:Arn}' --output text | wc -l)
 LB_CONTROLLER_POLICY_NAME="AWSLoadBalancerControllerIAMPolicy"
