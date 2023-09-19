@@ -2,7 +2,13 @@
 
 source ../env.sh
 
+if ! command -v eksctl &>/dev/null ;then
+    echo "Not installed eksctl"
+    exit 1
+fi
+
 if ! command -v jq &>/dev/null ;then
+    echo "Not installed jq"
     exit 1
 fi
 
