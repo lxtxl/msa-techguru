@@ -17,6 +17,10 @@ fi
 
 # Kubernetes 서비스 계정 추가
 echo "eksctl create iamserviceaccount start"
+echo "EKS_ACCOUNT_ID: ${EKS_ACCOUNT_ID}"
+echo "EKS_REGION: ${EKS_REGION}"
+echo "LB_CONTROLLER_POLICY_NAME: ${LB_CONTROLLER_POLICY_NAME}"
+
 eksctl create iamserviceaccount \
   --cluster=${EKS_CLUSTER_NAME} \
   --namespace=kube-system \
@@ -28,8 +32,9 @@ eksctl create iamserviceaccount \
 echo "eksctl create iamserviceaccount end"
 # ingress controller가 설치되어 있다면 삭제한다.
 CONTROLLER_INSTALLED=$(kubectl get deployment -n kube-system alb-ingress-controller 2>&1 | grep "Error from server (NotFound)" | wc -l)
+echo "CONTROLLER_INSTALLED: ${CONTROLLER_INSTALLED}"
 
-if [ ${CONTROLLER_INSTALLED} != 1 ];then
+#if [ ${CONTROLLER_INSTALLED} != 1 ];then
 #   kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.8/docs/examples/alb-ingress-controller.yaml
 #   kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.8/docs/examples/rbac-role.yaml
 
@@ -43,14 +48,14 @@ if [ ${CONTROLLER_INSTALLED} != 1 ];then
 #   aws iam attach-role-policy \
 #   --role-name your-role name \
 #   --policy-arn ${POLICY_ROLE_ARN}
-fi
+#fi
 
 # AWS Load Balancer Controller 설치
 helm repo add eks https://aws.github.io/eks-charts
 
 helm repo update
 
-
+echo "EKS_CLUSTER_NAME: ${EKS_CLUSTER_NAME}"
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   -n kube-system \
   --set clusterName=${EKS_CLUSTER_NAME} \

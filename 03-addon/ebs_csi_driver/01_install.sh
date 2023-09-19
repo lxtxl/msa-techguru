@@ -2,6 +2,10 @@
 
 source ../env.sh
 
+if ! command -v jq &>/dev/null ;then
+    exit 1
+fi
+
 set -e
 
 CSI_POLICY_NAME=AmazonEKS_EBS_CSI_Driver_Policy
