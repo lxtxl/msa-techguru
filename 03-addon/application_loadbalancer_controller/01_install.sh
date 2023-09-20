@@ -2,6 +2,11 @@
 
 source ../env.sh
 
+if ! command -v eksctl &>/dev/null ;then
+    echo "Not installed eksctl"
+    exit 1
+fi
+
 # AWS 로드 밸런서 컨트롤러의 IAM 정책 생성 ( 1.27 )
 curl -o load-balancer-role-trust-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json
 

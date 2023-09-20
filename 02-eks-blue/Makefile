@@ -13,3 +13,7 @@ apply:
 .PHONY: destroy
 destroy:
 	terraform destroy -auto-approve=true -var-file=terraform.tfvars
+
+.PHONY: output
+output:
+	terraform output
