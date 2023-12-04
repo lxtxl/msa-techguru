@@ -1,19 +1,21 @@
 .PHONY: init
 init:
-	terraform init
+	tofu init
 
 .PHONY: plan
 plan:
-	terraform plan
+	tofu plan
 
 .PHONY: apply
 apply:
-	terraform apply -auto-approve=true -var-file=terraform.tfvars
+	tofu apply -auto-approve=true -var-file=terraform.tfvars
 
 .PHONY: destroy
 destroy:
-	terraform destroy -auto-approve=true -var-file=terraform.tfvars
+	tofu destroy -auto-approve=true -var-file=terraform.tfvars
 
-.PHONY: output
-output:
-	terraform output
+.PHONY: clean
+clean:
+	rm -rf .terraform
+	rm -rf .terraform.lock.hcl
+	rm -rf terraform.tfstate*

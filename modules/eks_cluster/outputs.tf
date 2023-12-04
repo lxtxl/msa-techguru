@@ -18,3 +18,12 @@ output "cluster_certificate_authority_data" {
   value       = module.eks.cluster_certificate_authority_data
 }
 
+output "eks_cluster_oidc_arn" {
+  description = "The name of the EKS cluster."
+  value       = module.eks.oidc_provider_arn
+}
+
+output "eks_managed_node_groups" {
+  description = "eks managed nodegroup"
+  value       = module.eks.eks_managed_node_groups
+}
